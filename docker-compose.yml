@@ -13,18 +13,18 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
-  api:
-    build:
-      context: .
-      dockerfile: apps/api/Dockerfile
-    container_name: birthday_reminder_api
-    depends_on:
-      - postgres
-    environment:
-      DATABASE_URL: postgres://user:password@postgres:5432/birthday_reminder
-      SUPABASE_JWT_SECRET: ${SUPABASE_JWT_SECRET}
-    ports:
-      - "3000:3000"
+  # api:
+  #   build:
+  #     context: .
+  #     dockerfile: apps/api/Dockerfile
+  #   container_name: birthday_reminder_api
+  #   depends_on:
+  #     - postgres
+  #   environment:
+  #     DATABASE_URL: postgres://user:password@postgres:5432/birthday_reminder
+  #     SUPABASE_JWT_SECRET: ${SUPABASE_JWT_SECRET}
+  #   ports:
+  #     - "3000:3000"
 
 volumes:
   postgres_data:
